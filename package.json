@@ -32,5 +32,8 @@
   "browserslist": [
     "last 2 versions",
     "ie >= 10"
-  ]
+  ],
+  "paths": {
+    "base": "../RACE/cartridges/app_storefront_base"
+  }
 }
