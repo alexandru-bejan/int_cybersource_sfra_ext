@@ -1,12 +1,12 @@
 /* eslint-disable linebreak-style */
 let System = require('dw/system');
+let site = System.Site.getCurrent();
 
 /**
  *
  * @returns {boolean} a boolean of true or false
  */
 function isMicroformEnabled() {
-    let site = System.Site.getCurrent();
     let microformCheck = false;
     if (site.getCustomPreferenceValue('OnBehalfOfMicroformEnable') === true)
         microformCheck = true;
@@ -14,6 +14,11 @@ function isMicroformEnabled() {
   return microformCheck ;
 }
 
+function setSecureAcceptanceType() {
+  site.setCustomPreferenceValue('CsSAType', 'SA_FLEX');
+}
+
 module.exports = {
-  isMicroformEnabled: isMicroformEnabled
+  isMicroformEnabled: isMicroformEnabled,
+  setSecureAcceptanceType: setSecureAcceptanceType
 };

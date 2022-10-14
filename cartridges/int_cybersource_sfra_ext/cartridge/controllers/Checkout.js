@@ -3,13 +3,18 @@
 
 var server = require('server');
 server.extend(module.superModule);
+var System = require('dw/system');
+var site = System.Site.getCurrent();
+var sitePreferences = require('*/cartridge/scripts/helpers/sitePreferences');
 
 
 server.prepend('Begin', function (req, res, next) {
-  var System = require('dw/system');
-  var site = System.Site.getCurrent();
   var viewData = res.getViewData();
-  viewData.microformEnabled = site.getCustomPreferenceValue('OnBehalfOfMicroformEnable');
+  viewData.microformEnabled = sitePreferences.isMicroformEnabled();
+  if (viewData.microformEnabled === true) {
+    // sitePreferences.setSecureAcceptanceType();
+  }
+  viewData.secureAcceptanceType = site.getCustomPreferenceValue('CsSAType');
   res.setViewData(viewData);
   next();
 });

@@ -61,6 +61,8 @@ ${Resource.msg('button.next.payment', 'checkout', null)} </button> </iscomment>
            
             <button class="btn btn-primary btn-block" ${pdict.microformEnabled ? style="visibility: visible" : style="visibility: hidden"} > ${Resource.msg('button.flex.generate', 'flex', null)}
             </button>
+            <p>microform enabled: ${pdict.microformEnabled} </p>
+            <p>secure acceptance type : ${pdict.secureAcceptanceType} </p>
               <fieldset >
                 <isinclude template="checkout/billing/paymentOptions" />
                </fieldset>
