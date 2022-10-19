@@ -34,6 +34,7 @@
     "ie >= 10"
   ],
   "paths": {
-    "base": "../RACE/cartridges/app_storefront_base"
+    "base": "../RACE/cartridges/app_storefront_base",
+    "cybersource": "../CyberSource/cartridges/int_cybersource_sfra"
   }
 }
